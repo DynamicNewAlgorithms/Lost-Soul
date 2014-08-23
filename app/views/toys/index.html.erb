@@ -9,12 +9,26 @@
             <div class="row text-center">
               <h1>Lost Soul: <small> Prototype Toys </small></h1>
             </div>
-            <div class="row">
-              <div class="col-md-1"></div>
-              <div class="col-md-11">
-                <p>HeatBeat is a small little app that looks at building tension with a simple heartbeat simulation.</p>
-              </div>
-            </div>
+            <% if @toys.size > 0 %>
+                <% @toys.each do |toy| %>
+                    <div class="row">
+                      <div class="col-md-2">
+                        <a href=<%=	"/toys/#{toy.id}" %>><%=toy.name %></a>
+                      </div>
+                      <div class="col-md-10">
+                        <p><%=toy.description %></p>
+                      </div>
+                    </div>
+                <% end %>
+            <% else %>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-11">
+                    <p>The DB is empty.</p>
+                  </div>
+                </div>
+            <% end %>
+
           </div>
     </div>
     <div class="col-md-2"></div>

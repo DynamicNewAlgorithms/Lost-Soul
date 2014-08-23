@@ -3,7 +3,7 @@ class ToysController < ApplicationController
 
 
   def index
-
+    @toys = PerlenspielScript.all
   end
 
   def show
