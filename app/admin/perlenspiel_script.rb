@@ -8,4 +8,17 @@ ActiveAdmin.register PerlenspielScript do
     column :updated_at
     actions
   end
+
+
+
+  show do
+    h3 perlenspiel_script.name
+    pre  type: "syntaxhighlighter",class:  "brush: js" do
+        perlenspiel_script.code
+    end
+
+    script do
+      "SyntaxHighlighter.all();"
+    end
+  end
 end
